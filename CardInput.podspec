@@ -10,8 +10,7 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/mahmutpinarbasi/CardInput.git', :tag => s.version }
 
   s.ios.deployment_target = '10.0'
-  s.source_files = 'CardInput/CardInput/*.swift'
-  
+  s.source_files = 'CardInput/*.swift'
   s.resources = "CardInput/**/*.{png,jpeg,jpg,storyboard,xib,xcassets}" 
   s.swift_version = "4.2"
 
