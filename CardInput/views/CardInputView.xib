@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -76,13 +75,8 @@
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBc-gQ-jST" userLabel="frontview">
                                     <rect key="frame" x="0.0" y="0.0" width="329" height="195"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_chip" translatesAutoresizingMaskIntoConstraints="NO" id="FEv-Be-W2R">
-                                            <rect key="frame" x="32" y="32" width="50" height="38"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="38" id="UnD-nh-rKg"/>
-                                                <constraint firstAttribute="width" secondItem="FEv-Be-W2R" secondAttribute="height" multiplier="25:19" id="d06-7s-k5N"/>
-                                                <constraint firstAttribute="width" constant="50" id="ohJ-SO-dZN"/>
-                                            </constraints>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="credit_card_front" translatesAutoresizingMaskIntoConstraints="NO" id="eCz-ca-rWr">
+                                            <rect key="frame" x="0.0" y="0.0" width="329" height="195"/>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5pe-lI-tbW">
                                             <rect key="frame" x="22" y="79" width="285" height="44"/>
@@ -177,15 +171,17 @@
                                     </subviews>
                                     <color key="backgroundColor" red="0.19607843137254902" green="0.46666666666666667" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="eCz-ca-rWr" secondAttribute="bottom" id="4fy-Tk-J3o"/>
+                                        <constraint firstItem="eCz-ca-rWr" firstAttribute="top" secondItem="SBc-gQ-jST" secondAttribute="top" id="DBt-As-kfd"/>
                                         <constraint firstAttribute="trailing" secondItem="7BQ-7j-jBh" secondAttribute="trailing" constant="22" id="GWT-uu-2EB"/>
                                         <constraint firstItem="7BQ-7j-jBh" firstAttribute="top" secondItem="5pe-lI-tbW" secondAttribute="bottom" constant="8" id="IoH-ut-ExR"/>
                                         <constraint firstItem="y7c-ho-w23" firstAttribute="top" secondItem="SBc-gQ-jST" secondAttribute="top" constant="20" id="OnV-t9-HO9"/>
                                         <constraint firstAttribute="trailing" secondItem="y7c-ho-w23" secondAttribute="trailing" constant="20" id="T81-yW-YQk"/>
+                                        <constraint firstItem="eCz-ca-rWr" firstAttribute="leading" secondItem="SBc-gQ-jST" secondAttribute="leading" id="TFN-2c-Ydy"/>
                                         <constraint firstAttribute="trailing" secondItem="5pe-lI-tbW" secondAttribute="trailing" constant="22" id="YuP-0X-ZMp"/>
-                                        <constraint firstItem="FEv-Be-W2R" firstAttribute="top" secondItem="SBc-gQ-jST" secondAttribute="top" constant="32" id="aYB-xR-3Qz"/>
-                                        <constraint firstItem="FEv-Be-W2R" firstAttribute="leading" secondItem="SBc-gQ-jST" secondAttribute="leading" constant="32" id="dw6-l0-aOI"/>
                                         <constraint firstItem="5pe-lI-tbW" firstAttribute="leading" secondItem="SBc-gQ-jST" secondAttribute="leading" constant="22" id="jgV-4X-RYs"/>
                                         <constraint firstItem="7BQ-7j-jBh" firstAttribute="leading" secondItem="SBc-gQ-jST" secondAttribute="leading" constant="22" id="kch-Hd-KVn"/>
+                                        <constraint firstAttribute="trailing" secondItem="eCz-ca-rWr" secondAttribute="trailing" id="wxW-7h-HUM"/>
                                         <constraint firstAttribute="bottom" secondItem="7BQ-7j-jBh" secondAttribute="bottom" constant="20" id="xju-Xy-LjD"/>
                                     </constraints>
                                 </view>
@@ -273,7 +269,7 @@
         <image name="arrow_left" width="8" height="15"/>
         <image name="arrow_right" width="8" height="14"/>
         <image name="card_brand_visa" width="144" height="45"/>
-        <image name="card_chip" width="107" height="82"/>
         <image name="credit_card_back" width="659" height="391"/>
+        <image name="credit_card_front" width="659" height="391"/>
     </resources>
 </document>
