@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="idi-T5-vsV">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Card Input Controller-->
+        <scene sceneID="A5K-WQ-Px4">
+            <objects>
+                <viewController storyboardIdentifier="CardInputController" id="idi-T5-vsV" customClass="CardInputController" customModule="CardInput" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="8H0-T9-tmg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="299"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nef-Mf-UVq" customClass="CardInputView" customModule="CardInput" customModuleProvider="target">
+                                <rect key="frame" x="23" y="20.5" width="329" height="258"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="329" id="eMi-5H-aFA"/>
+                                    <constraint firstAttribute="height" constant="258" id="hxF-dH-bOJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Nef-Mf-UVq" firstAttribute="centerX" secondItem="8H0-T9-tmg" secondAttribute="centerX" id="XTc-U5-FSX"/>
+                            <constraint firstItem="Nef-Mf-UVq" firstAttribute="centerY" secondItem="8H0-T9-tmg" secondAttribute="centerY" id="eIR-5l-Avx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WEl-2B-UaF"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="299"/>
+                    <connections>
+                        <outlet property="cardInputView" destination="Nef-Mf-UVq" id="Mct-sj-hAw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vMk-tP-laZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

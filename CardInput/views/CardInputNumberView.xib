@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ocraextended.ttf">
+            <string>OCRAExtended</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardInputNumberView" customModule="CardInput" customModuleProvider="target">
+            <connections>
+                <outlet property="fieldCard" destination="xvh-Um-ifK" id="eij-Mx-GNV"/>
+                <outlet property="lblTitle" destination="L5V-XB-w4Y" id="hoc-er-mgb"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Oc9-G2-3vn"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yde-Em-NTS">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oD7-Fi-mBz">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="CARD NUMBER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5V-XB-w4Y">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="15.5"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="11"/>
+                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="xvh-Um-ifK" customClass="AKMaskField" customModule="AKMaskField">
+                                    <rect key="frame" x="0.0" y="15.5" width="375" height="29.5"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="OCRAExtended" family="OCR A Extended" pointSize="15"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="maskExpression" value="{dddd}-{dddd}-{dddd}-{dddd}"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="maskTemplate" value="**** **** **** ****"/>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="oD7-Fi-mBz" secondAttribute="trailing" id="557-xK-cGl"/>
+                        <constraint firstItem="oD7-Fi-mBz" firstAttribute="leading" secondItem="yde-Em-NTS" secondAttribute="leading" id="Wfz-5K-pMn"/>
+                        <constraint firstAttribute="bottom" secondItem="oD7-Fi-mBz" secondAttribute="bottom" id="mhW-Hn-9ct"/>
+                        <constraint firstItem="oD7-Fi-mBz" firstAttribute="top" secondItem="yde-Em-NTS" secondAttribute="top" id="oQC-fd-Dsi"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="yde-Em-NTS" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="LwF-HV-eCb"/>
+                <constraint firstItem="yde-Em-NTS" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="ZPM-rr-F6N"/>
+                <constraint firstItem="yde-Em-NTS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="aLX-TL-UDU"/>
+                <constraint firstItem="yde-Em-NTS" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="en0-mp-npM"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>
