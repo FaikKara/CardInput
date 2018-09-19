@@ -7,14 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7579AD52215293BF0017E2D6 /* CardLocalizedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7579AD32215293BF0017E2D6 /* CardLocalizedLabel.swift */; };
 		7579AD53215293BF0017E2D6 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7579AD33215293BF0017E2D6 /* Appearance.swift */; };
-		7579AD54215293BF0017E2D6 /* CardInput.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7579AD36215293BF0017E2D6 /* CardInput.xcassets */; };
-		7579AD55215293BF0017E2D6 /* ocraextended.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7579AD38215293BF0017E2D6 /* ocraextended.ttf */; };
 		7579AD56215293BF0017E2D6 /* Consraint+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7579AD3A215293BF0017E2D6 /* Consraint+UIView.swift */; };
 		7579AD57215293BF0017E2D6 /* Appearance+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7579AD3B215293BF0017E2D6 /* Appearance+UIView.swift */; };
 		7579AD58215293BF0017E2D6 /* CardInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7579AD3D215293BF0017E2D6 /* CardInputController.swift */; };
-		7579AD59215293BF0017E2D6 /* CardInput.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7579AD3E215293BF0017E2D6 /* CardInput.storyboard */; };
 		7579AD5A215293BF0017E2D6 /* CardInputNumberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7579AD40215293BF0017E2D6 /* CardInputNumberView.xib */; };
 		7579AD5B215293BF0017E2D6 /* CardInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7579AD41215293BF0017E2D6 /* CardInputView.xib */; };
 		7579AD5C215293BF0017E2D6 /* CardInputNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7579AD42215293BF0017E2D6 /* CardInputNumberView.swift */; };
@@ -31,6 +27,9 @@
 		7579AD67215293BF0017E2D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7579AD50215293BF0017E2D6 /* AppDelegate.swift */; };
 		75DA2E4821456D250073C3DF /* CardInputTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA2E4721456D250073C3DF /* CardInputTests.swift */; };
 		75DA2E5321456D250073C3DF /* CardInputUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA2E5221456D250073C3DF /* CardInputUITests.swift */; };
+		75FE4F64215299FA00C86090 /* CardInput.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75FE4F61215299FA00C86090 /* CardInput.storyboard */; };
+		75FE4F65215299FA00C86090 /* CardInput.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75FE4F62215299FA00C86090 /* CardInput.xcassets */; };
+		75FE4F66215299FA00C86090 /* ocraextended.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75FE4F63215299FA00C86090 /* ocraextended.ttf */; };
 		C8082AF54606958D7864D058 /* Pods_CardInput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB732BF281A8E501E206D4CB /* Pods_CardInput.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,14 +52,10 @@
 
 /* Begin PBXFileReference section */
 		2647B34702D20D7F1587A4C6 /* Pods-CardInput.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardInput.release.xcconfig"; path = "Pods/Target Support Files/Pods-CardInput/Pods-CardInput.release.xcconfig"; sourceTree = "<group>"; };
-		7579AD32215293BF0017E2D6 /* CardLocalizedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardLocalizedLabel.swift; sourceTree = "<group>"; };
 		7579AD33215293BF0017E2D6 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
-		7579AD36215293BF0017E2D6 /* CardInput.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CardInput.xcassets; sourceTree = "<group>"; };
-		7579AD38215293BF0017E2D6 /* ocraextended.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ocraextended.ttf; sourceTree = "<group>"; };
 		7579AD3A215293BF0017E2D6 /* Consraint+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Consraint+UIView.swift"; sourceTree = "<group>"; };
 		7579AD3B215293BF0017E2D6 /* Appearance+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Appearance+UIView.swift"; sourceTree = "<group>"; };
 		7579AD3D215293BF0017E2D6 /* CardInputController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardInputController.swift; sourceTree = "<group>"; };
-		7579AD3E215293BF0017E2D6 /* CardInput.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CardInput.storyboard; sourceTree = "<group>"; };
 		7579AD40215293BF0017E2D6 /* CardInputNumberView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardInputNumberView.xib; sourceTree = "<group>"; };
 		7579AD41215293BF0017E2D6 /* CardInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardInputView.xib; sourceTree = "<group>"; };
 		7579AD42215293BF0017E2D6 /* CardInputNumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardInputNumberView.swift; sourceTree = "<group>"; };
@@ -83,6 +78,9 @@
 		75DA2E4E21456D250073C3DF /* CardInputUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardInputUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75DA2E5221456D250073C3DF /* CardInputUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputUITests.swift; sourceTree = "<group>"; };
 		75DA2E5421456D250073C3DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75FE4F61215299FA00C86090 /* CardInput.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CardInput.storyboard; sourceTree = "<group>"; };
+		75FE4F62215299FA00C86090 /* CardInput.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CardInput.xcassets; sourceTree = "<group>"; };
+		75FE4F63215299FA00C86090 /* ocraextended.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ocraextended.ttf; sourceTree = "<group>"; };
 		CB732BF281A8E501E206D4CB /* Pods_CardInput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CardInput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E146958556EC9BAE5344F255 /* Pods-CardInput.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardInput.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CardInput/Pods-CardInput.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,43 +126,19 @@
 		7579AD30215293BF0017E2D6 /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				7579AD31215293BF0017E2D6 /* untitled folder */,
 				7579AD33215293BF0017E2D6 /* Appearance.swift */,
 			);
 			path = classes;
 			sourceTree = "<group>";
 		};
-		7579AD31215293BF0017E2D6 /* untitled folder */ = {
-			isa = PBXGroup;
-			children = (
-				7579AD32215293BF0017E2D6 /* CardLocalizedLabel.swift */,
-			);
-			path = "untitled folder";
-			sourceTree = "<group>";
-		};
 		7579AD34215293BF0017E2D6 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				7579AD35215293BF0017E2D6 /* images */,
-				7579AD37215293BF0017E2D6 /* fonts */,
+				75FE4F61215299FA00C86090 /* CardInput.storyboard */,
+				75FE4F62215299FA00C86090 /* CardInput.xcassets */,
+				75FE4F63215299FA00C86090 /* ocraextended.ttf */,
 			);
 			path = resources;
-			sourceTree = "<group>";
-		};
-		7579AD35215293BF0017E2D6 /* images */ = {
-			isa = PBXGroup;
-			children = (
-				7579AD36215293BF0017E2D6 /* CardInput.xcassets */,
-			);
-			path = images;
-			sourceTree = "<group>";
-		};
-		7579AD37215293BF0017E2D6 /* fonts */ = {
-			isa = PBXGroup;
-			children = (
-				7579AD38215293BF0017E2D6 /* ocraextended.ttf */,
-			);
-			path = fonts;
 			sourceTree = "<group>";
 		};
 		7579AD39215293BF0017E2D6 /* extensions */ = {
@@ -180,7 +154,6 @@
 			isa = PBXGroup;
 			children = (
 				7579AD3D215293BF0017E2D6 /* CardInputController.swift */,
-				7579AD3E215293BF0017E2D6 /* CardInput.storyboard */,
 			);
 			path = viewcontrollers;
 			sourceTree = "<group>";
@@ -388,15 +361,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7579AD65215293BF0017E2D6 /* LaunchScreen.storyboard in Resources */,
+				75FE4F65215299FA00C86090 /* CardInput.xcassets in Resources */,
+				75FE4F66215299FA00C86090 /* ocraextended.ttf in Resources */,
 				7579AD66215293BF0017E2D6 /* Main.storyboard in Resources */,
-				7579AD55215293BF0017E2D6 /* ocraextended.ttf in Resources */,
 				7579AD5D215293BF0017E2D6 /* CardInputValidThruView.xib in Resources */,
-				7579AD59215293BF0017E2D6 /* CardInput.storyboard in Resources */,
 				7579AD5E215293BF0017E2D6 /* CardInputHolderView.xib in Resources */,
 				7579AD5A215293BF0017E2D6 /* CardInputNumberView.xib in Resources */,
+				75FE4F64215299FA00C86090 /* CardInput.storyboard in Resources */,
 				7579AD5B215293BF0017E2D6 /* CardInputView.xib in Resources */,
 				7579AD64215293BF0017E2D6 /* Assets.xcassets in Resources */,
-				7579AD54215293BF0017E2D6 /* CardInput.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,7 +450,6 @@
 			files = (
 				7579AD67215293BF0017E2D6 /* AppDelegate.swift in Sources */,
 				7579AD60215293BF0017E2D6 /* CardInputScrollView.swift in Sources */,
-				7579AD52215293BF0017E2D6 /* CardLocalizedLabel.swift in Sources */,
 				7579AD56215293BF0017E2D6 /* Consraint+UIView.swift in Sources */,
 				7579AD62215293BF0017E2D6 /* CardInputValidThruView.swift in Sources */,
 				7579AD63215293BF0017E2D6 /* ViewController.swift in Sources */,
