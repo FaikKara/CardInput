@@ -10,21 +10,20 @@ import UIKit
 import AKMaskField
 
 
-enum InputEvent {
+public enum InputEvent {
     case beginEditing
     case editingChanged
     case endEditing
 }
 
-enum InputType: Int {
+public enum InputType: Int {
     case cardNumber = 0
     case cardHolder = 1
     case validThru = 2
     case cvv = 3
 }
 
-
-struct CreditCard {
+public struct CreditCard {
     
     var number:String
     var holder:String
@@ -58,8 +57,8 @@ struct CreditCard {
 }
 
 
-typealias InputChanged = (( _ type:InputType, _ event:InputEvent , _ input:String, _ isValid:Bool) -> ())
-typealias InputCompletion = (( _ creditCard:CreditCard) -> ())
+public typealias InputChanged = (( _ type:InputType, _ event:InputEvent , _ input:String, _ isValid:Bool) -> ())
+public typealias InputCompletion = (( _ creditCard:CreditCard) -> ())
 
 
 
@@ -232,7 +231,7 @@ final public class CardInputView: UIView {
 // MARK: - Observing
 extension CardInputView {
     
-    func observeInputChanges(using closure: @escaping InputChanged) {
+    public func observeInputChanges(using closure: @escaping InputChanged) {
         self.scrollView.inputChanged = {[weak self] type, event, input, isValid in
             
             guard let strongSelf = self else { return }
@@ -271,7 +270,7 @@ extension CardInputView {
         }
     }
     
-    func observeInputCompletion(with closure: @escaping InputCompletion) {
+    public func observeInputCompletion(with closure: @escaping InputCompletion) {
         self.completion = closure
     }
     
