@@ -23,7 +23,8 @@ internal class CardInputNumberView: UIView, Validation {
     @IBOutlet weak var lblTitle: UILabel!
     
     private func commonInit(){
-        Bundle.main.loadNibNamed("CardInputNumberView", owner: self, options: nil)
+        let bundle = Bundle.init(for: self.classForCoder)
+        bundle.loadNibNamed("CardInputNumberView", owner: self, options: nil)
         addSubview(view)
         view.frame = self.bounds
         view.autoresizingMask = [.flexibleHeight, .flexibleWidth]

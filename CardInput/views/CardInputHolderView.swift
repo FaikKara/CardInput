@@ -17,7 +17,8 @@ internal class CardInputHolderView: UIView, Validation {
     @IBOutlet weak var fieldHolder: UITextField!
     
     private func commonInit(){
-        Bundle.main.loadNibNamed("CardInputHolderView", owner: self, options: nil)
+        let bundle = Bundle.init(for: self.classForCoder)
+        bundle.loadNibNamed("CardInputHolderView", owner: self, options: nil)
         addSubview(view)
         view.frame = self.bounds
         view.autoresizingMask = [.flexibleHeight, .flexibleWidth]

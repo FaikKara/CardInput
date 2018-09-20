@@ -123,7 +123,8 @@ final public class CardInputView: UIView {
     
     
     private func commonInit(){
-        Bundle.main.loadNibNamed("CardInputView", owner: self, options: nil)
+        let bundle = Bundle.init(for: self.classForCoder)
+        bundle.loadNibNamed("CardInputView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
