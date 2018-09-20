@@ -25,10 +25,10 @@ public enum InputType: Int {
 
 public struct CreditCard {
     
-    var number:String
-    var holder:String
-    var validThru:String
-    var cvv:String
+    public var number:String
+    public var holder:String
+    public var validThru:String
+    public var cvv:String
     
     
     mutating func update(number:String){
