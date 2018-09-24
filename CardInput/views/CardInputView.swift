@@ -132,11 +132,11 @@ final public class CardInputView: UIView {
             bundle.loadNibNamed("CardInputView", owner: self, options: nil)
             addSubview(contentView)
             
-            self.btnNext.setImage(UIImage.init(named: "arrow_right", in: bundle, compatibleWith: nil), for: .normal)
-            self.btnPrevious.setImage(UIImage.init(named: "arrow_left", in: bundle, compatibleWith: nil), for: .normal)
-            self.backImageView.image = UIImage.init(named: "credit_card_back", in: bundle, compatibleWith: nil)
-            self.frontImageView.image = UIImage.init(named: "credit_card_front", in: bundle, compatibleWith: nil)
-            self.brandImageView.image = UIImage.init(named: "card_brand_visa", in: bundle, compatibleWith: nil)
+            self.btnNext.setImage(UIImage.init(named: "arrow_right.png", in: bundle, compatibleWith: nil), for: .normal)
+            self.btnPrevious.setImage(UIImage.init(named: "arrow_left.png", in: bundle, compatibleWith: nil), for: .normal)
+            self.backImageView.image = UIImage.init(named: "credit_card_back.png", in: bundle, compatibleWith: nil)
+            self.frontImageView.image = UIImage.init(named: "credit_card_front.png", in: bundle, compatibleWith: nil)
+            self.brandImageView.image = UIImage.init(named: "card_brand_visa.png", in: bundle, compatibleWith: nil)
         }
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
