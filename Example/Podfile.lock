@@ -1,6 +1,6 @@
 PODS:
   - AKMaskField (2.0.3)
-  - CardInput (0.4.2):
+  - CardInput (0.4.3):
     - AKMaskField
 
 DEPENDENCIES:
@@ -13,7 +13,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AKMaskField: b6d147524813e62cd3f15475fa2200ce7a3d2620
-  CardInput: b9cd1fa9e435194f7978fbaa23766b61067a20b8
+  CardInput: b9a0cff8cb6698bbc3f6df3a5ce3d0b4531a107a
 
 PODFILE CHECKSUM: 077e169a90f84be8868e8719cfacf0d880cc9d07
 

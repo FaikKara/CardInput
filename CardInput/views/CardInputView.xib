@@ -17,7 +17,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardInputView" customModule="CardInput" customModuleProvider="target">
             <connections>
+                <outlet property="backImageView" destination="FXt-xn-X2C" id="F4z-yW-zEu"/>
                 <outlet property="backView" destination="e85-VZ-Uvg" id="Erq-Lo-9mv"/>
+                <outlet property="brandImageView" destination="y7c-ho-w23" id="B3x-FI-DvW"/>
                 <outlet property="btnNext" destination="LjR-ZA-5Mz" id="HCm-1w-2SD"/>
                 <outlet property="btnPrevious" destination="UUO-5h-Vrd" id="KTy-jf-J8g"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="GlY-Jp-5ux"/>
@@ -26,6 +28,7 @@
                 <outlet property="fieldCvv" destination="CSn-bw-SFN" id="CYL-3f-JD3"/>
                 <outlet property="fieldHolder" destination="cGY-Ky-vai" id="2mc-RX-Npf"/>
                 <outlet property="fieldValidThru" destination="32r-PA-fZR" id="Tc3-C2-4pU"/>
+                <outlet property="frontImageView" destination="eCz-ca-rWr" id="y4e-Ab-w10"/>
                 <outlet property="frontView" destination="SBc-gQ-jST" id="gEX-L5-Soi"/>
                 <outlet property="scrollView" destination="u53-L5-gGL" id="P6x-xW-daT"/>
             </connections>

@@ -90,7 +90,10 @@ class ProcessButton: UIButton {
 
 final public class CardInputView: UIView {
     
+    @IBOutlet weak var brandImageView: UIImageView!
+    @IBOutlet weak var frontImageView: UIImageView!
     
+    @IBOutlet weak var backImageView: UIImageView!
     @IBOutlet weak var btnNext: ProcessButton!
     @IBOutlet weak var btnPrevious: ProcessButton!
     @IBOutlet weak var fieldCard: AKMaskField!
@@ -128,6 +131,12 @@ final public class CardInputView: UIView {
             UIFont.registerDefaultFont(in: bundle)
             bundle.loadNibNamed("CardInputView", owner: self, options: nil)
             addSubview(contentView)
+            
+            self.btnNext.setImage(UIImage.init(named: "arrow_right", in: bundle, compatibleWith: nil), for: .normal)
+            self.btnPrevious.setImage(UIImage.init(named: "arrow_left", in: bundle, compatibleWith: nil), for: .normal)
+            self.backImageView.image = UIImage.init(named: "credit_card_back", in: bundle, compatibleWith: nil)
+            self.frontImageView.image = UIImage.init(named: "credit_card_front", in: bundle, compatibleWith: nil)
+            self.brandImageView.image = UIImage.init(named: "card_brand_visa", in: bundle, compatibleWith: nil)
         }
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
