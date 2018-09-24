@@ -20,7 +20,7 @@
                 <outlet property="backView" destination="e85-VZ-Uvg" id="Erq-Lo-9mv"/>
                 <outlet property="btnNext" destination="LjR-ZA-5Mz" id="HCm-1w-2SD"/>
                 <outlet property="btnPrevious" destination="UUO-5h-Vrd" id="KTy-jf-J8g"/>
-                <outlet property="contentView" destination="iN0-l3-epB" id="HR5-bI-HDF"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="GlY-Jp-5ux"/>
                 <outlet property="creditCardView" destination="kt6-mp-7yX" id="2IF-Ur-ajk"/>
                 <outlet property="fieldCard" destination="viq-RB-XEj" id="6vx-bp-lDG"/>
                 <outlet property="fieldCvv" destination="CSn-bw-SFN" id="CYL-3f-JD3"/>

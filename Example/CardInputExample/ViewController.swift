@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CardInput
 class NextButton: UIButton {
     
     override var isEnabled: Bool{
@@ -24,8 +24,18 @@ class NextButton: UIButton {
 
 class ViewController: UIViewController {
     @IBOutlet weak var btnNext: NextButton!
+    @IBOutlet weak var cardInputView: CardInputView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        cardInputView.observeInputChanges { (type, event, text, isValid) in
+            
+        }
+        
+        cardInputView.observeInputCompletion { (card) in
+            
+            
+        }
     }
 
     

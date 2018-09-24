@@ -123,9 +123,12 @@ final public class CardInputView: UIView {
     
     
     private func commonInit(){
-        let bundle = Bundle.init(for: self.classForCoder)
-        bundle.loadNibNamed("CardInputView", owner: self, options: nil)
-        addSubview(contentView)
+        
+        if let bundle = Bundle.cardInputBundle() {
+            UIFont.registerDefaultFont(in: bundle)
+            bundle.loadNibNamed("CardInputView", owner: self, options: nil)
+            addSubview(contentView)
+        }
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         creditCardView.layer.cornerRadius = 8.0
@@ -301,20 +304,6 @@ extension CardInputView {
 
 
 
-/// --------------------------------------------------------------- ///
-/// --------------------------------------------------------------- ///
-/// --------------------------------------------------------------- ///
-extension UIView {
-    
-    @discardableResult   // 1
-    func fromNib<T : UIView>(name:String) -> T? {   // 2
-        guard let contentView = Bundle(for: type(of: self)).loadNibNamed(name, owner: self, options: nil)?.first as? T else {    // 3
-            // xib not loaded, or its top view is of the wrong type
-            return nil
-        }
-        return contentView
-    }
-}
 
 
 /// --------------------------------------------------------------- ///

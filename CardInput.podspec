@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name = 'CardInput'
-  s.version = '0.4.2'
+  s.version = '0.4.3'
   s.license = 'MIT'
   s.summary = 'Fancy Credit Card Input'
   s.homepage = 'https://github.com/mahmutpinarbasi/CardInput.git'
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '10.0'
   s.source_files = 'CardInput/**/*.swift'
   #s.resources = "CardInput/**/*.{xib,xcassets}" 
-  s.resource_bundles = { 'CardInput' => [ "CardInput/**/*.{xib, xcassets}"] }
+  s.resource_bundles = { 'CardInput' => [ "CardInput/**/*.{xib,xcassets,ttf}"] }
   s.swift_version = "4.2"
 
 #dependincies

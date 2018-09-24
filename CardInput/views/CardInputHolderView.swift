@@ -11,17 +11,19 @@ import UIKit
 /// The UIView that gets Credit Card Holder Name. 
 internal class CardInputHolderView: UIView, Validation {
 
-    @IBOutlet weak var view: UIView!
-    
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var fieldHolder: UITextField!
     
     private func commonInit(){
-        let bundle = Bundle.init(for: self.classForCoder)
-        bundle.loadNibNamed("CardInputHolderView", owner: self, options: nil)
-        addSubview(view)
-        view.frame = self.bounds
-        view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        
+        if let bundle = Bundle.cardInputBundle() {
+            bundle.loadNibNamed("CardInputHolderView", owner: self, options: nil)
+            addSubview(contentView)
+        }
+        
+        contentView.frame = self.bounds
+        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.lblTitle.text = "CARD HOLDER"
         self.fieldHolder.delegate = self
         self.fieldHolder.autocorrectionType = .no

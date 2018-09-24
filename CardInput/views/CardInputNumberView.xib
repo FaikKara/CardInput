@@ -17,9 +17,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardInputNumberView" customModule="CardInput" customModuleProvider="target">
             <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="dYQ-ac-NYD"/>
                 <outlet property="fieldCard" destination="xvh-Um-ifK" id="eij-Mx-GNV"/>
                 <outlet property="lblTitle" destination="L5V-XB-w4Y" id="hoc-er-mgb"/>
-                <outlet property="view" destination="iN0-l3-epB" id="Oc9-G2-3vn"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

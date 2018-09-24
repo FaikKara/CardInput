@@ -18,16 +18,20 @@ private struct CardNumber {
 internal class CardInputNumberView: UIView, Validation {
 
     
-    @IBOutlet weak var view: UIView!
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var fieldCard: AKMaskField!
     @IBOutlet weak var lblTitle: UILabel!
     
     private func commonInit(){
-        let bundle = Bundle.init(for: self.classForCoder)
-        bundle.loadNibNamed("CardInputNumberView", owner: self, options: nil)
-        addSubview(view)
-        view.frame = self.bounds
-        view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        
+        if let bundle = Bundle.cardInputBundle() {
+            bundle.loadNibNamed("CardInputNumberView", owner: self, options: nil)
+            addSubview(contentView)
+        }
+
+        contentView.frame = self.bounds
+        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        
         self.lblTitle.text = "CARD NUMBER"
         self.fieldCard.maskDelegate = self
         self.fieldCard.keyboardType = .numberPad

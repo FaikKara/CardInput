@@ -29,18 +29,29 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Crv-OY-ter" customClass="CardInputView" customModule="CardInput">
+                                <rect key="frame" x="23" y="84" width="329" height="258"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="329" id="BgM-ms-uJN"/>
+                                    <constraint firstAttribute="height" constant="258" id="VRQ-z7-Dve"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Mtr-FI-hnG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="JoF-6e-aAk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mtr-FI-hnG" secondAttribute="trailing" constant="20" id="Maa-X9-DDR"/>
+                            <constraint firstItem="Crv-OY-ter" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vv0-T4-xFp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Mtr-FI-hnG" secondAttribute="bottom" constant="20" identifier="bottomConstraint" id="fUF-mS-iha"/>
+                            <constraint firstItem="Crv-OY-ter" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="icy-ff-1jc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="xl3-u3-zxW"/>
                     <connections>
                         <outlet property="btnNext" destination="Mtr-FI-hnG" id="m6k-ob-phJ"/>
+                        <outlet property="cardInputView" destination="Crv-OY-ter" id="mgd-BV-uhT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

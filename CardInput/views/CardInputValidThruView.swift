@@ -17,9 +17,13 @@ internal class CardInputValidThruView: UIView, Validation {
     @IBOutlet weak var fieldCvv: AKMaskField!
     
     private func commonInit(){
-        let bundle = Bundle.init(for: self.classForCoder)
-        bundle.loadNibNamed("CardInputValidThruView", owner: self, options: nil)
-        self.addSubview(contentView)
+        
+        
+        if let bundle = Bundle.cardInputBundle() {
+            bundle.loadNibNamed("CardInputValidThruView", owner: self, options: nil)
+            addSubview(contentView)
+        }
+        
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         fieldValidThru.maskDelegate = self;
