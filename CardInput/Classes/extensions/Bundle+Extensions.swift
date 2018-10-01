@@ -20,3 +20,12 @@ extension Bundle {
         return Bundle.init(url: bundleURL)
     }
 }
+
+
+extension UIImage {
+    
+    convenience init(named imageNamedInBundle:String) {
+        self.init(named: imageNamedInBundle, in: Bundle.cardInputBundle(), compatibleWith: nil)
+    }
+    
+}
