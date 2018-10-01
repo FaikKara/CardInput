@@ -24,7 +24,7 @@ extension Bundle {
 
 extension UIImage {
     
-    convenience init(named imageNamedInBundle:String) {
+    convenience init?(named imageNamedInBundle:String) {
         self.init(named: imageNamedInBundle, in: Bundle.cardInputBundle(), compatibleWith: nil)
     }
     
