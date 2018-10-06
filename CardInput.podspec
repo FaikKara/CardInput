@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name = 'CardInput'
-  s.version = '0.4.8'
+  s.version = '0.5.0'
   s.license = 'MIT'
   s.summary = 'Fancy Credit Card Input'
   s.homepage = 'https://github.com/mahmutpinarbasi/CardInput.git'
@@ -12,7 +12,5 @@ Pod::Spec.new do |s|
   s.source_files = 'CardInput/Classes/**/*.swift'
   s.resource_bundles = { 'CardInput' => [ "CardInput/**/*.{xib,png,ttf}"] }
   s.swift_version = "4.2"
-
-#dependincies
   s.dependency 'AKMaskField'
 end
