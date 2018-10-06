@@ -78,19 +78,19 @@
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBc-gQ-jST" userLabel="frontview">
                                     <rect key="frame" x="0.0" y="0.0" width="329" height="195"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eCz-ca-rWr">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="credit_card_front.png" translatesAutoresizingMaskIntoConstraints="NO" id="eCz-ca-rWr">
                                             <rect key="frame" x="0.0" y="0.0" width="329" height="195"/>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5pe-lI-tbW">
                                             <rect key="frame" x="22" y="79" width="285" height="44"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CARD NUMBER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7v-5i-m99">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CARD NUMBER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7v-5i-m99" customClass="CardLabel" customModule="CardInput" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="285" height="14"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="10"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="viq-RB-XEj" customClass="AKMaskField" customModule="AKMaskField">
+                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="viq-RB-XEj" customClass="AKMaskField" customModule="AKMaskField">
                                                     <rect key="frame" x="0.0" y="14" width="285" height="30"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -109,43 +109,37 @@
                                                 <constraint firstAttribute="height" constant="44" id="ldW-Yl-0OL"/>
                                             </constraints>
                                         </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="7BQ-7j-jBh">
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="7BQ-7j-jBh">
                                             <rect key="frame" x="22" y="131" width="285" height="44"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="cOU-De-XEV">
-                                                    <rect key="frame" x="0.0" y="0.0" width="203" height="44"/>
+                                                    <rect key="frame" x="0.0" y="9" width="203" height="35"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOLDER NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaW-m9-mAr">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOLDER NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaW-m9-mAr" customClass="CardLabel" customModule="CardInput" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="73.5" height="14"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="10"/>
                                                             <color key="textColor" red="0.71372549019999998" green="0.81176470590000005" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cGY-Ky-vai" customClass="AKMaskField" customModule="AKMaskField">
-                                                            <rect key="frame" x="0.0" y="14" width="9" height="30"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="Zdw-ut-lPv"/>
-                                                            </constraints>
+                                                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="****" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cGY-Ky-vai">
+                                                            <rect key="frame" x="0.0" y="14" width="32" height="21"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
                                                             <textInputTraits key="textInputTraits"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="maskTemplate" value="****"/>
-                                                            </userDefinedRuntimeAttributes>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5KT-Yh-RJb">
-                                                    <rect key="frame" x="205" y="7" width="80" height="30"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5KT-Yh-RJb">
+                                                    <rect key="frame" x="205" y="9" width="80" height="35"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VALID THRU" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JU-gP-WBK">
-                                                            <rect key="frame" x="11.5" y="0.0" width="57.5" height="14"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VALID THRU" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JU-gP-WBK" customClass="CardLabel" customModule="CardInput" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="57.5" height="14"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="10"/>
                                                             <color key="textColor" red="0.71372549019999998" green="0.81176470590000005" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="32r-PA-fZR" customClass="AKMaskField" customModule="AKMaskField">
-                                                            <rect key="frame" x="33" y="14" width="14" height="16"/>
+                                                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="32r-PA-fZR" customClass="AKMaskField" customModule="AKMaskField">
+                                                            <rect key="frame" x="0.0" y="19" width="14" height="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="OCRAExtended" family="OCR A Extended" pointSize="15"/>
                                                             <textInputTraits key="textInputTraits"/>
@@ -164,15 +158,15 @@
                                                 <constraint firstAttribute="height" constant="44" id="8Re-j5-OGC"/>
                                             </constraints>
                                         </stackView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y7c-ho-w23">
-                                            <rect key="frame" x="237" y="20" width="72" height="33"/>
+                                        <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y7c-ho-w23">
+                                            <rect key="frame" x="189" y="20" width="120" height="33"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="72" id="uhp-ji-rpI"/>
+                                                <constraint firstAttribute="width" constant="120" id="uhp-ji-rpI"/>
                                                 <constraint firstAttribute="height" constant="33" id="xkK-NP-lue"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.19607843137254902" green="0.46666666666666667" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="eCz-ca-rWr" secondAttribute="bottom" id="4fy-Tk-J3o"/>
                                         <constraint firstItem="eCz-ca-rWr" firstAttribute="top" secondItem="SBc-gQ-jST" secondAttribute="top" id="DBt-As-kfd"/>
@@ -189,7 +183,7 @@
                                     </constraints>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" red="0.1960784314" green="0.46666666670000001" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="SBc-gQ-jST" firstAttribute="leading" secondItem="kt6-mp-7yX" secondAttribute="leading" id="0Td-sY-64p"/>
                                 <constraint firstAttribute="bottom" secondItem="e85-VZ-Uvg" secondAttribute="bottom" id="2VO-Mj-SgL"/>
@@ -214,7 +208,7 @@
                                         <constraint firstAttribute="height" constant="20" id="6M5-cx-7qy"/>
                                         <constraint firstAttribute="width" constant="20" id="iBw-4b-P3f"/>
                                     </constraints>
-                                    <state key="normal" image="arrow_right"/>
+                                    <state key="normal" image="arrow_right.png"/>
                                     <connections>
                                         <action selector="nextButtonTapped:" destination="-1" eventType="touchUpInside" id="DOr-3I-G9O"/>
                                     </connections>
@@ -225,7 +219,7 @@
                                         <constraint firstAttribute="height" constant="20" id="2OK-4y-ePx"/>
                                         <constraint firstAttribute="width" constant="20" id="f39-4f-OhB"/>
                                     </constraints>
-                                    <state key="normal" image="arrow_left"/>
+                                    <state key="normal" image="arrow_left.png"/>
                                     <connections>
                                         <action selector="previousButtonTapped" destination="-1" eventType="touchUpInside" id="RJH-i8-e74"/>
                                     </connections>
@@ -269,7 +263,8 @@
         </view>
     </objects>
     <resources>
-        <image name="arrow_left" width="8" height="15"/>
-        <image name="arrow_right" width="8" height="14"/>
+        <image name="arrow_left.png" width="8" height="15"/>
+        <image name="arrow_right.png" width="8" height="14"/>
+        <image name="credit_card_front.png" width="659" height="391"/>
     </resources>
 </document>

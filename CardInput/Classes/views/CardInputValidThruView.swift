@@ -34,10 +34,10 @@ internal class CardInputValidThruView: UIView, Validation {
         
         let appearance = Appearance.default
         fieldValidThru.tintColor = appearance.tintColor
-        fieldValidThru.textColor = appearance.textColor
+        fieldValidThru.textColor = appearance.textColor.withAlphaComponent(0.3)
         
         fieldCvv.tintColor = appearance.tintColor
-        fieldCvv.textColor = appearance.textColor
+        fieldCvv.textColor = appearance.textColor.withAlphaComponent(0.3)
     }
     
     // MARK: - Init
@@ -103,9 +103,14 @@ extension CardInputValidThruView: AKMaskFieldDelegate, UITextFieldDelegate {
         
         var isValid = false
         switch maskField.maskStatus {
-        case .clear,.incomplete:
+        case .clear:
+            maskField.textColor = Appearance.default.textColor.withAlphaComponent(0.3)
+            break
+        case .incomplete:
+            maskField.textColor = Appearance.default.textColor
             break
         case .complete:
+            maskField.textColor = Appearance.default.textColor
             isValid = true
             break
         }

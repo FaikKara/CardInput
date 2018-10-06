@@ -41,6 +41,6 @@ public struct Appearance {
 
 private extension Appearance {
     private static func createDefault() -> Appearance {
-        return Appearance(tintColor: UIColor.darkGray, textColor:UIColor.black)
+        return Appearance(tintColor: UIColor.darkGray, textColor:UIColor(hex: "404040"))
     }
 }

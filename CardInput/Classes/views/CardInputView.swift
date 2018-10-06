@@ -136,7 +136,6 @@ final public class CardInputView: UIView {
             self.btnPrevious.setImage(UIImage.init(named: "arrow_left.png", in: bundle, compatibleWith: nil), for: .normal)
             self.backImageView.image = UIImage.init(named: "credit_card_back.png", in: bundle, compatibleWith: nil)
             self.frontImageView.image = UIImage.init(named: "credit_card_front.png", in: bundle, compatibleWith: nil)
-            self.brandImageView.image = UIImage.init(named: "card_brand_visa.png", in: bundle, compatibleWith: nil)
         }
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -145,6 +144,9 @@ final public class CardInputView: UIView {
         self.contentView.clipsToBounds = true
         stateValidation = [.cardNumber:false, .cardHolder:false, .validThru:false, .cvv:false]
         self.updateState()
+        self.fieldCard.textColor = UIColor.white.withAlphaComponent(0.3)
+        self.fieldValidThru.textColor = UIColor.white.withAlphaComponent(0.3)
+        self.fieldHolder.textColor = UIColor.white.withAlphaComponent(0.3)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -212,10 +214,11 @@ final public class CardInputView: UIView {
             break
         case .validThru, .cvv:
             self.btnPrevious.isHidden = false
+            self.btnNext.isHidden = true
             if let valid1 = self.stateValidation[.validThru], let valid2 = self.stateValidation[.cvv] {
-                self.btnNext.isEnabled = (valid1 && valid2)
-            }else{
-                self.btnNext.isEnabled = false
+                if valid1 && valid2 {
+                    self.endEditing(true)
+                }
             }
             break
         }
@@ -247,27 +250,35 @@ extension CardInputView {
     public func observeInputChanges(using closure: @escaping InputChanged) {
         self.scrollView.inputChanged = {[weak self] type, event, input, isValid in
             
+            
+            var needsStateUpdate = true
+            
             guard let strongSelf = self else { return }
             switch type {
             case .cardNumber:
                 strongSelf.creditCard.update(number: input)
                 strongSelf.fieldCard.text = input
+                strongSelf.fieldCard.textColor = self?.textColor(for: input)
                 if isValid && event != .beginEditing && event != .endEditing {
                     strongSelf.nextButtonTapped(input)
                 }
+                strongSelf.applyCardBrand(to: input)
                 break
             case .cardHolder:
                 strongSelf.creditCard.update(holder: input)
                 strongSelf.fieldHolder.text = input
+                strongSelf.fieldHolder.textColor = self?.textColor(for: input)
                 break
             case .validThru:
                 strongSelf.creditCard.validThru = input
                 strongSelf.fieldValidThru.text = input
+                strongSelf.fieldValidThru.textColor = self?.textColor(for: input)
                 break
             case .cvv:
                 if (event == .beginEditing && !strongSelf.showingBack) || (!isValid && !strongSelf.showingBack) {
                     strongSelf.flip()
                     strongSelf.showingBack = true
+                    needsStateUpdate = false
                 }else if (event == .endEditing && strongSelf.showingBack) || (isValid && strongSelf.showingBack) {
                     strongSelf.flip()
                     strongSelf.showingBack = false
@@ -278,7 +289,9 @@ extension CardInputView {
             }
             
             strongSelf.stateValidation[type] = isValid
-            strongSelf.updateState()
+            if needsStateUpdate {
+                strongSelf.updateState()
+            }
             closure(type, event, input, isValid)
         }
     }
@@ -287,6 +300,34 @@ extension CardInputView {
         self.completion = closure
     }
     
+    private func textColor(for input:String) -> UIColor {
+        if input.count > 0 {
+            return UIColor.white
+        }else{
+            return UIColor.white.withAlphaComponent(0.3)
+        }
+    }
+    
+    private func applyCardBrand(to input:String){
+        let state = CardState.init(fromPrefix: input)
+        self.brandImageView.image = self.cardImage(forState: state)
+    }
+    
+    private func cardImage(forState cardState:CardState) -> UIImage? {
+        switch cardState {
+        case .identified(let cardType):
+            switch cardType{
+            case .visa:         return UIImage.image(namedInBundle: "visa")
+            case .masterCard:   return UIImage.image(namedInBundle: "mastercard")
+            case .amex:         return UIImage.image(namedInBundle: "amex")
+            
+            default:
+                return nil
+            }
+        case .indeterminate: return nil
+        case .invalid:      return nil
+        }
+    }
 }
 
 
@@ -325,3 +366,71 @@ extension NSObject {
     }
 }
 
+
+
+class CardLabel: UILabel {
+    
+    private static let attributes:[NSAttributedString.Key:Any] = [NSAttributedString.Key.kern:0.74,
+                                                                  NSAttributedString.Key.font:UIFont(name: "Avenir-Medium", size: 9.5)!,
+                                                                  NSAttributedString.Key.foregroundColor:UIColor(hex: "B6CFEE")]
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.configureText()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.configureText()
+    }
+    
+    override var text: String? {
+        didSet {
+            self.configureText()
+        }
+    }
+    
+    private func configureText(){
+        guard let value = self.text else { return }
+        self.attributedText = NSAttributedString.init(string: value, attributes: CardLabel.attributes)
+    }
+    
+    
+}
+
+
+
+
+
+
+
+extension UIImage {
+    convenience init?(namedInBundle name:String){
+        self.init(named: name, in: Bundle.cardInputBundle(), compatibleWith: nil)
+    }
+    
+    class func image(namedInBundle name:String, renderingMode: UIImage.RenderingMode = UIImage.RenderingMode.alwaysOriginal) -> UIImage? {
+        if let image = UIImage.init(namedInBundle: name) {
+            return image.withRenderingMode(renderingMode)
+        }
+        return nil
+    }
+}
+
+extension UIColor {
+    convenience init(hex:String) {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.count) != 6) {
+            self.init()
+        }else{
+            var rgbValue:UInt32 = 0
+            Scanner(string: cString).scanHexInt32(&rgbValue)
+            self.init(red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0, green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0, blue: CGFloat(rgbValue & 0x0000FF) / 255.0, alpha: CGFloat(1.0))
+        }
+    }
+}

@@ -11,9 +11,9 @@ import UIKit
 /// The UIView that gets Credit Card Holder Name. 
 internal class CardInputHolderView: UIView, Validation {
 
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var fieldHolder: UITextField!
+    @IBOutlet private weak var contentView: UIView!
+    @IBOutlet private weak var lblTitle: UILabel!
+    @IBOutlet private weak var fieldHolder: UITextField!
     
     private func commonInit(){
         
@@ -25,12 +25,13 @@ internal class CardInputHolderView: UIView, Validation {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.lblTitle.text = "CARD HOLDER"
-        self.fieldHolder.delegate = self
         self.fieldHolder.autocorrectionType = .no
         
         let appearance = Appearance.default
         self.fieldHolder.tintColor = appearance.tintColor
         self.fieldHolder.textColor = appearance.textColor
+        
+        self.fieldHolder.addTarget(self, action: #selector(editingChanged), for: UIControl.Event.editingChanged)
     }
     
     /// MARK - Init
@@ -60,16 +61,18 @@ internal class CardInputHolderView: UIView, Validation {
         return self.fieldHolder.becomeFirstResponder()
     }
     
-}
-
-extension CardInputHolderView : UITextFieldDelegate {
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let isValid = ((textField.text?.count ?? 0) + string.count) > 0
-        let rawText = "\(textField.text ?? "")\(string)"
-        self.internalChanged(InputType.cardHolder, InputEvent.editingChanged, rawText, isValid)
-        return true
+    @objc private func editingChanged() {
+        let textValue = self.fieldHolder.text ?? ""
+        let isValid = textValue.count>0
+        
+        if textValue.count == 0 {
+            self.fieldHolder.textColor = Appearance.default.textColor.withAlphaComponent(0.3)
+        }else {
+            self.fieldHolder.textColor = Appearance.default.textColor
+        }
+        self.internalChanged(InputType.cardHolder, InputEvent.editingChanged, textValue, isValid)
     }
-
 }
+
 

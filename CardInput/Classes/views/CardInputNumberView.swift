@@ -38,7 +38,7 @@ internal class CardInputNumberView: UIView, Validation {
         
         let appearance = Appearance.default
         self.fieldCard.tintColor = appearance.tintColor
-        self.fieldCard.textColor = appearance.textColor
+        self.fieldCard.textColor = appearance.textColor.withAlphaComponent(0.3)
     }
     
     
@@ -85,9 +85,14 @@ extension CardInputNumberView: AKMaskFieldDelegate {
     
         var isValid = false
         switch maskField.maskStatus {
-        case .clear,.incomplete:
+        case .clear:
+            maskField.textColor = Appearance.default.textColor.withAlphaComponent(0.3)
+             break
+        case .incomplete:
+            maskField.textColor = Appearance.default.textColor
             break
         case .complete:
+            maskField.textColor = Appearance.default.textColor
             isValid = true
             break
         }
