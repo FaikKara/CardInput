@@ -9,7 +9,7 @@ import Foundation
 
 //MARK: - CardType
 
-enum CardType {
+public enum CardType {
     case amex
     case diners
     case discover
@@ -117,14 +117,14 @@ fileprivate extension CardType {
 
 //MARK: - CardState
 
-enum CardState {
+public enum CardState {
     case identified(CardType)
     case indeterminate([CardType])
     case invalid
 }
 
 extension CardState: Equatable {}
-func ==(lhs: CardState, rhs: CardState) -> Bool {
+public func ==(lhs: CardState, rhs: CardState) -> Bool {
     switch (lhs, rhs) {
     case (.invalid, .invalid): return true
     case (let .indeterminate(cards1), let .indeterminate(cards2)): return cards1 == cards2
@@ -135,7 +135,7 @@ func ==(lhs: CardState, rhs: CardState) -> Bool {
 
 extension CardState {
 
-    init(fromNumber number: String) {
+    public init(fromNumber number: String) {
         if let card = CardType.allValues.first(where: { $0.isValid(number) }) {
             self = .identified(card)
         }
@@ -144,7 +144,7 @@ extension CardState {
         }
     }
 
-    init(fromPrefix prefix: String) {
+    public init(fromPrefix prefix: String) {
         let possibleTypes = CardType.allValues.filter { $0.isPrefixValid(prefix) }
         if possibleTypes.count >= 2 {
             self = .indeterminate(possibleTypes)
