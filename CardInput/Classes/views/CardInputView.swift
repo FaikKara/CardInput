@@ -183,12 +183,7 @@ final public class CardInputView: UIView {
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
-        
-        if let _ = self.stateValidation[.cvv], (self.state == .validThru) {
-            self.completion?(self.creditCard)
-            return
-        }
-        
+
         if !self.scrollView.canScroll(to: self.state.rawValue+1) {
             return
         }
@@ -218,6 +213,7 @@ final public class CardInputView: UIView {
             if let valid1 = self.stateValidation[.validThru], let valid2 = self.stateValidation[.cvv] {
                 if valid1 && valid2 {
                     self.endEditing(true)
+                    self.completion?(self.creditCard)
                 }
             }
             break
