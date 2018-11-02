@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name = 'CardInput'
-  s.version = '0.5.3'
+  s.version = '0.5.4'
   s.license = 'MIT'
   s.summary = 'Fancy Credit Card Input'
   s.homepage = 'https://github.com/mahmutpinarbasi/CardInput.git'

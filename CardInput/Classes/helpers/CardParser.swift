@@ -43,7 +43,7 @@ public enum CardType {
             
         // https://www.mastercard.us/content/dam/mccom/global/documents/mastercard-rules.pdf
         // For a Maestro Account, the PAN must be 13 to 19 digits in length. A
-        case .maestro:      prefix = ["5018", "5020", "5038", "5612", "5893", "6304", "6759", "6761", "6762", "6763", "0604", "6390"]
+        case .maestro:      prefix = ["50", "56"..."58", "639", "67"]
                             length = [13, 14, 15, 16, 17, 18, 19]
             
         case .visa:         prefix = ["4"]
