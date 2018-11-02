@@ -98,6 +98,7 @@ extension CardInputScrollView {
         - index: The index to be scrolled
         - animated: Animation flag
      */
+    @discardableResult
     func scrollToIndex(index:Int, animated:Bool) -> Bool{
         
         if !self.canScroll(to: index) { return false}
@@ -105,25 +106,21 @@ extension CardInputScrollView {
         let width = self.bounds.width
         let offset = width * CGFloat(index)
         self.setContentOffset(CGPoint.init(x: offset, y: self.contentOffset.y), animated: animated)
+        self.currentIndex = index
+        self.findNextResponder(for: InputType(rawValue: self.currentIndex)!)
         return true
     }
     
     /// Scrolls to next index if possible, do nothing otherwise
     func scrollToNext(){
         let newIndex = self.currentIndex + 1
-        if self.scrollToIndex(index: newIndex, animated: true){
-            self.currentIndex = newIndex
-            self.findNextResponder(for: InputType(rawValue: self.currentIndex)!)
-        }
+        self.scrollToIndex(index: newIndex, animated: true)
     }
     
     /// Scrolls to previous index if possible, do nothing otherwise
     func scrollToPrevious(){
         let newIndex = self.currentIndex-1
-        if self.scrollToIndex(index: newIndex, animated: true) {
-            self.currentIndex = newIndex
-            self.findNextResponder(for: InputType(rawValue: self.currentIndex)!)
-        }
+        self.scrollToIndex(index: newIndex, animated: true)
     }
     
     /**

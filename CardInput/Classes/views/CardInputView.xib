@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -90,20 +90,40 @@
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="viq-RB-XEj" customClass="AKMaskField" customModule="AKMaskField">
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pN4-Ue-Ah9">
                                                     <rect key="frame" x="0.0" y="14" width="285" height="30"/>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="viq-RB-XEj" customClass="AKMaskField" customModule="AKMaskField">
+                                                            <rect key="frame" x="0.0" y="0.0" width="285" height="30"/>
+                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" name="OCRAExtended" family="OCR A Extended" pointSize="23"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="maskExpression" value="{....} {....} {....} {....}"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="maskTemplate" value="**** **** **** ****"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </textField>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UG6-z7-eXd">
+                                                            <rect key="frame" x="0.0" y="0.0" width="285" height="30"/>
+                                                            <connections>
+                                                                <action selector="cardNumberTapped:" destination="-1" eventType="touchUpInside" id="zhD-sM-5zl"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="8YS-up-Bf2"/>
+                                                        <constraint firstAttribute="trailing" secondItem="UG6-z7-eXd" secondAttribute="trailing" id="Cv7-aN-RlV"/>
+                                                        <constraint firstItem="viq-RB-XEj" firstAttribute="leading" secondItem="pN4-Ue-Ah9" secondAttribute="leading" id="VnT-63-pPA"/>
+                                                        <constraint firstAttribute="bottom" secondItem="viq-RB-XEj" secondAttribute="bottom" id="ZuE-4B-IFL"/>
+                                                        <constraint firstAttribute="trailing" secondItem="viq-RB-XEj" secondAttribute="trailing" id="eGo-Pj-6k5"/>
+                                                        <constraint firstAttribute="bottom" secondItem="UG6-z7-eXd" secondAttribute="bottom" id="hga-Fc-e4j"/>
+                                                        <constraint firstAttribute="height" constant="30" id="l4Q-Kp-iGq"/>
+                                                        <constraint firstItem="UG6-z7-eXd" firstAttribute="top" secondItem="pN4-Ue-Ah9" secondAttribute="top" id="mB9-o2-oI7"/>
+                                                        <constraint firstItem="UG6-z7-eXd" firstAttribute="leading" secondItem="pN4-Ue-Ah9" secondAttribute="leading" id="oXE-Rl-vdS"/>
+                                                        <constraint firstItem="viq-RB-XEj" firstAttribute="top" secondItem="pN4-Ue-Ah9" secondAttribute="top" id="p9a-Xc-mrs"/>
                                                     </constraints>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="OCRAExtended" family="OCR A Extended" pointSize="23"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="maskExpression" value="{....} {....} {....} {....}"/>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="maskTemplate" value="**** **** **** ****"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="ldW-Yl-0OL"/>
@@ -113,7 +133,7 @@
                                             <rect key="frame" x="22" y="131" width="285" height="44"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="cOU-De-XEV">
-                                                    <rect key="frame" x="0.0" y="9" width="203" height="35"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="203" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOLDER NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaW-m9-mAr" customClass="CardLabel" customModule="CardInput" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="73.5" height="14"/>
@@ -121,33 +141,77 @@
                                                             <color key="textColor" red="0.71372549019999998" green="0.81176470590000005" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="****" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cGY-Ky-vai">
-                                                            <rect key="frame" x="0.0" y="14" width="32" height="21"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
+                                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LCi-uh-PY1">
+                                                            <rect key="frame" x="0.0" y="14" width="50" height="30"/>
+                                                            <subviews>
+                                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="****" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cGY-Ky-vai">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y07-P8-dJI">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
+                                                                    <connections>
+                                                                        <action selector="cardHolderTapped:" destination="-1" eventType="touchUpInside" id="DG1-fe-zgg"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="cGY-Ky-vai" secondAttribute="bottom" id="3KX-Hr-Gy7"/>
+                                                                <constraint firstItem="Y07-P8-dJI" firstAttribute="top" secondItem="LCi-uh-PY1" secondAttribute="top" id="6pJ-j7-3nU"/>
+                                                                <constraint firstItem="cGY-Ky-vai" firstAttribute="leading" secondItem="LCi-uh-PY1" secondAttribute="leading" id="B83-Bi-aKz"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Y07-P8-dJI" secondAttribute="bottom" id="K0k-cp-jB5"/>
+                                                                <constraint firstItem="Y07-P8-dJI" firstAttribute="leading" secondItem="LCi-uh-PY1" secondAttribute="leading" id="R3T-nb-Td5"/>
+                                                                <constraint firstAttribute="trailing" secondItem="cGY-Ky-vai" secondAttribute="trailing" id="dAv-8v-6SS"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Y07-P8-dJI" secondAttribute="trailing" id="iME-3V-DSu"/>
+                                                                <constraint firstItem="cGY-Ky-vai" firstAttribute="top" secondItem="LCi-uh-PY1" secondAttribute="top" id="y5c-aj-veb"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5KT-Yh-RJb">
-                                                    <rect key="frame" x="205" y="9" width="80" height="35"/>
+                                                    <rect key="frame" x="205" y="0.0" width="80" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VALID THRU" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JU-gP-WBK" customClass="CardLabel" customModule="CardInput" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="57.5" height="14"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="57.5" height="9"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="10"/>
                                                             <color key="textColor" red="0.71372549019999998" green="0.81176470590000005" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="32r-PA-fZR" customClass="AKMaskField" customModule="AKMaskField">
-                                                            <rect key="frame" x="0.0" y="19" width="14" height="16"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" name="OCRAExtended" family="OCR A Extended" pointSize="15"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="maskExpression" value="{..}/{..}"/>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="maskTemplate" value="** **"/>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </textField>
+                                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JeJ-dV-7PS">
+                                                            <rect key="frame" x="0.0" y="14" width="50" height="30"/>
+                                                            <subviews>
+                                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="32r-PA-fZR" customClass="AKMaskField" customModule="AKMaskField">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <fontDescription key="fontDescription" name="OCRAExtended" family="OCR A Extended" pointSize="15"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="maskExpression" value="{..}/{..}"/>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="maskTemplate" value="** **"/>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </textField>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZdF-dA-qd5">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
+                                                                    <connections>
+                                                                        <action selector="validThruTapped:" destination="-1" eventType="touchUpInside" id="Mtw-u2-NtO"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstItem="32r-PA-fZR" firstAttribute="leading" secondItem="JeJ-dV-7PS" secondAttribute="leading" id="51m-IG-jTe"/>
+                                                                <constraint firstAttribute="trailing" secondItem="ZdF-dA-qd5" secondAttribute="trailing" id="FoZ-f2-dRy"/>
+                                                                <constraint firstAttribute="trailing" secondItem="32r-PA-fZR" secondAttribute="trailing" id="MLO-Xy-tFx"/>
+                                                                <constraint firstItem="ZdF-dA-qd5" firstAttribute="leading" secondItem="JeJ-dV-7PS" secondAttribute="leading" id="Nd0-98-rvJ"/>
+                                                                <constraint firstItem="ZdF-dA-qd5" firstAttribute="top" secondItem="JeJ-dV-7PS" secondAttribute="top" id="TeK-eN-PMe"/>
+                                                                <constraint firstItem="32r-PA-fZR" firstAttribute="top" secondItem="JeJ-dV-7PS" secondAttribute="top" id="Yqa-TS-bB5"/>
+                                                                <constraint firstAttribute="bottom" secondItem="32r-PA-fZR" secondAttribute="bottom" id="ZIb-IY-1vf"/>
+                                                                <constraint firstAttribute="bottom" secondItem="ZdF-dA-qd5" secondAttribute="bottom" id="bod-W5-A2q"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="BeS-xz-Z52"/>

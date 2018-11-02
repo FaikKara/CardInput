@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         }
         
         cardInputView.observeInputCompletion { (card) in
-            print("completion")
+            
         }
     }
 

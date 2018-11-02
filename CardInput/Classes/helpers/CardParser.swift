@@ -15,9 +15,10 @@ public enum CardType {
     case discover
     case jcb
     case masterCard
+    case maestro
     case visa
 
-    static let allValues: [CardType] = [.visa, .masterCard, .amex, .diners, .discover, .jcb]
+    static let allValues: [CardType] = [.visa, .masterCard, .maestro,.amex, .diners, .discover, .jcb]
 
     private var validationRequirements: ValidationRequirement {
         let prefix: [PrefixContainable], length: [Int]
@@ -39,9 +40,16 @@ public enum CardType {
 
         case .masterCard:   prefix = ["51"..."55", "2221"..."2720"]
                             length = [16]
-
+            
+        // https://www.mastercard.us/content/dam/mccom/global/documents/mastercard-rules.pdf
+        // For a Maestro Account, the PAN must be 13 to 19 digits in length. A
+        case .maestro:      prefix = ["5018", "5020", "5038", "5612", "5893", "6304", "6759", "6761", "6762", "6763", "0604", "6390"]
+                            length = [13, 14, 15, 16, 17, 18, 19]
+            
         case .visa:         prefix = ["4"]
                             length = [13, 16, 19]
+        
+            
 
         }
 

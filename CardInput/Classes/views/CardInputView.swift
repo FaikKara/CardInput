@@ -173,7 +173,7 @@ final public class CardInputView: UIView {
     
     
     
-    @IBAction func previousButtonTapped(){
+    @IBAction private func previousButtonTapped(){
         if !self.scrollView.canScroll(to: self.state.rawValue-1) {
             return
         }
@@ -182,7 +182,7 @@ final public class CardInputView: UIView {
         self.state = InputType.init(rawValue: self.state.rawValue-1)!
     }
     
-    @IBAction func nextButtonTapped(_ sender: Any) {
+    @IBAction private  func nextButtonTapped(_ sender: Any) {
 
         if !self.scrollView.canScroll(to: self.state.rawValue+1) {
             return
@@ -200,6 +200,7 @@ final public class CardInputView: UIView {
             self.btnNext.isEnabled = false
         }
         
+        self.btnNext.isHidden = false
         switch self.state {
         case .cardNumber:
             self.btnPrevious.isHidden = true
@@ -235,6 +236,25 @@ final public class CardInputView: UIView {
     }
     
     
+    @IBAction private func cardNumberTapped(_ sender: UIButton) {
+        self.scrollView.scrollToIndex(index: InputType.cardNumber.rawValue, animated: true)
+        self.state = .cardNumber
+    }
+    
+    @IBAction private func cardHolderTapped(_ sender: UIButton) {
+        if self.creditCard.number.count == 0 { return }
+        
+        self.scrollView.scrollToIndex(index: InputType.cardHolder.rawValue, animated: true)
+        self.state = .cardHolder
+    }
+    
+    @IBAction private func validThruTapped(_ sender: UIButton) {
+        if self.creditCard.holder.count == 0 { return }
+        
+        self.scrollView.scrollToIndex(index: InputType.validThru.rawValue, animated: true)
+        self.state = .validThru
+    }
+    
     
 }
 
@@ -242,7 +262,6 @@ final public class CardInputView: UIView {
 
 // MARK: - Observing
 extension CardInputView {
-    
     public func observeInputChanges(using closure: @escaping InputChanged) {
         self.scrollView.inputChanged = {[weak self] type, event, input, isValid in
             
@@ -255,7 +274,7 @@ extension CardInputView {
                 strongSelf.creditCard.update(number: input)
                 strongSelf.fieldCard.text = input
                 strongSelf.fieldCard.textColor = self?.textColor(for: input)
-                if isValid && event != .beginEditing && event != .endEditing {
+                if isValid && event != .beginEditing && event != .endEditing && input.count == CardNumber.max_length{
                     strongSelf.nextButtonTapped(input)
                 }
                 strongSelf.applyCardBrand(to: input)
@@ -269,6 +288,9 @@ extension CardInputView {
                 strongSelf.creditCard.validThru = input
                 strongSelf.fieldValidThru.text = input
                 strongSelf.fieldValidThru.textColor = self?.textColor(for: input)
+                if event == .beginEditing  {
+                    needsStateUpdate = false
+                }
                 break
             case .cvv:
                 if (event == .beginEditing && !strongSelf.showingBack) || (!isValid && !strongSelf.showingBack) {
@@ -316,7 +338,7 @@ extension CardInputView {
             case .visa:         return UIImage.image(namedInBundle: "visa")
             case .masterCard:   return UIImage.image(namedInBundle: "mastercard")
             case .amex:         return UIImage.image(namedInBundle: "amex")
-            
+            case .maestro:       return UIImage.image(namedInBundle: "maestro")
             default:
                 return nil
             }

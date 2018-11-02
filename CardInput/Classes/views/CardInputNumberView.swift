@@ -10,7 +10,7 @@ import UIKit
 import AKMaskField
 
 
-private struct CardNumber {
+struct CardNumber {
     static let charset:CharacterSet = CharacterSet.init(charactersIn: "0123456789")
     static let max_length:Int = 16
 }
@@ -72,18 +72,16 @@ internal class CardInputNumberView: UIView, Validation {
 extension CardInputNumberView: AKMaskFieldDelegate {
 
     func maskFieldDidBeginEditing(_ maskField: AKMaskField) {
-        let isValid = maskField.isValid()
+        let isValid = self.rawValue(in: maskField).count > 0
         self.internalInputChanged(InputType.cardNumber, InputEvent.beginEditing, self.rawValue(in: maskField), isValid)
     }
     
     func maskFieldDidEndEditing(_ maskField: AKMaskField) {
-        let isValid = maskField.isValid()
+        let isValid = self.rawValue(in: maskField).count > 0
         self.internalInputChanged(InputType.cardNumber, InputEvent.endEditing, self.rawValue(in: maskField), isValid)
     }
     
     func maskField(_ maskField: AKMaskField, didChangedWithEvent event: AKMaskFieldEvent) {
-    
-        var isValid = false
         switch maskField.maskStatus {
         case .clear:
             maskField.textColor = Appearance.default.textColor.withAlphaComponent(0.3)
@@ -93,10 +91,9 @@ extension CardInputNumberView: AKMaskFieldDelegate {
             break
         case .complete:
             maskField.textColor = Appearance.default.textColor
-            isValid = true
             break
         }
-
+        let isValid = self.rawValue(in: maskField).count > 0
         self.internalInputChanged(InputType.cardNumber, InputEvent.editingChanged, self.rawValue(in: maskField), isValid)
     }
 }
