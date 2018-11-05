@@ -14,7 +14,7 @@ internal class CardInputValidThruView: UIView, Validation {
 
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var fieldValidThru: AKMaskField!
-    @IBOutlet weak var fieldCvv: AKMaskField!
+    @IBOutlet weak var fieldCvv: UITextField!
     
     private func commonInit(){
         
@@ -27,7 +27,7 @@ internal class CardInputValidThruView: UIView, Validation {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         fieldValidThru.maskDelegate = self;
-        fieldCvv.maskDelegate = self;
+        fieldCvv.delegate = self;
         
         fieldValidThru.keyboardType = .numberPad
         fieldCvv.keyboardType = .numberPad
@@ -38,6 +38,8 @@ internal class CardInputValidThruView: UIView, Validation {
         
         fieldCvv.tintColor = appearance.tintColor
         fieldCvv.textColor = appearance.textColor.withAlphaComponent(0.3)
+        fieldCvv.addTarget(self, action: #selector(editingChanged), for: UIControl.Event.editingChanged)
+        self.addToolbar()
     }
     
     // MARK: - Init
@@ -77,25 +79,37 @@ internal class CardInputValidThruView: UIView, Validation {
         }
     }
 
+    
+    private func addToolbar(){
+        let toolbar = UIToolbar.init()
+        toolbar.barStyle = .default
+        toolbar.isTranslucent = false
+        let done = UIBarButtonItem.init(title: NSLocalizedString("Done", comment: ""), style: .plain, target: self, action: #selector(doneTapped))
+        let flexible = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolbar.items = [flexible, done]
+        toolbar.sizeToFit()
+        self.fieldCvv.inputAccessoryView = toolbar
+    }
+    
+    @objc private func doneTapped(){
+        self.fieldCvv.resignFirstResponder()
+    }
+    
 }
 
-extension CardInputValidThruView: AKMaskFieldDelegate, UITextFieldDelegate {
+extension CardInputValidThruView: AKMaskFieldDelegate {
     
     func maskFieldDidBeginEditing(_ maskField: AKMaskField) {
         let isValid = maskField.isValid()
         if maskField == self.fieldValidThru {
-            self.internalInputChanged(InputType.validThru, InputEvent.beginEditing, self.rawValue(in: maskField), isValid)
-        }else if maskField == self.fieldCvv {
-            self.internalInputChanged(InputType.cvv, InputEvent.beginEditing, self.rawValue(in: maskField), isValid)
+            self.internalInputChanged(InputType.validThru, InputEvent.beginEditing, self.rawValue(in: maskField), isValid, nil)
         }
     }
     
     func maskFieldDidEndEditing(_ maskField: AKMaskField) {
         let isValid = maskField.isValid()
         if maskField == self.fieldValidThru {
-            self.internalInputChanged(InputType.validThru, InputEvent.endEditing, self.rawValue(in: maskField), isValid)
-        }else if maskField == self.fieldCvv {
-            self.internalInputChanged(InputType.cvv, InputEvent.endEditing, self.rawValue(in: maskField), isValid)
+            self.internalInputChanged(InputType.validThru, InputEvent.endEditing, self.rawValue(in: maskField), isValid, nil)
         }
     }
     
@@ -115,28 +129,68 @@ extension CardInputValidThruView: AKMaskFieldDelegate, UITextFieldDelegate {
             break
         }
         if maskField == self.fieldValidThru {
-            self.internalInputChanged(InputType.validThru, InputEvent.editingChanged, self.rawValue(in: maskField), isValid)
+            self.internalInputChanged(InputType.validThru, InputEvent.editingChanged, self.rawValue(in: maskField), isValid, nil)
             if isValid {
                 self.fieldCvv.becomeFirstResponder()
             }
-        }else if maskField == self.fieldCvv {
-            self.internalInputChanged(InputType.cvv, InputEvent.editingChanged, self.rawValue(in: maskField), isValid)
         }
         
+    }
+}
+
+
+extension CardInputValidThruView: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField != fieldCvv { return true }
+        
+        let newText = "\(textField.text.safeValue)\(string)"
+        return newText.count <= 4
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let text = textField.text.safeValue
+        let isValid = false//text.count > 0
+        self.internalInputChanged(InputType.cvv, InputEvent.beginEditing, text, isValid, nil)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let text = textField.text.safeValue
+        let isValid = false//text.count > 0
+        self.internalInputChanged(InputType.cvv, InputEvent.endEditing, text, isValid, nil)
+    }
+    
+    @objc private func editingChanged() {
+        let textValue = self.fieldCvv.text.safeValue
+        let isValid = false//textValue.count>0
+        
+        if textValue.count == 0 {
+            self.fieldCvv.textColor = Appearance.default.textColor.withAlphaComponent(0.3)
+        }else {
+            self.fieldCvv.textColor = Appearance.default.textColor
+        }
+        
+        self.internalInputChanged(InputType.cvv, InputEvent.editingChanged, textValue, isValid, nil)
     }
 }
 
 fileprivate extension CardInputValidThruView {
     
     func rawValue(in maskField: AKMaskField) -> String {
-        
         guard let maskedText = maskField.text else { return ""}
         return maskedText.replacingOccurrences(of: "/", with: "").replacingOccurrences(of: "*", with: "")
-        
     }
 }
 
 
+private extension Swift.Optional where Wrapped == String {
+    var safeValue: String {
+        guard let val = self else {
+            return ""
+        }
+        return val
+    }
+}
 
 extension AKMaskField {
     

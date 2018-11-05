@@ -52,16 +52,16 @@ internal class CardInputScrollView: UIScrollView, Validation {
         self.clipsToBounds = true
         self.showsVerticalScrollIndicator = false
         self.showsHorizontalScrollIndicator = false
-        self.cardNumber.inputChanged = { type, event, rawText, isValid in
-            self.internalInputChanged(type, event, rawText, isValid)
+        self.cardNumber.inputChanged = { type, event, rawText, isValid, card in
+            self.internalInputChanged(type, event, rawText, isValid, card)
         }
         
-        self.cardHolder.inputChanged = { type, event, rawText, isValid in
-            self.internalInputChanged(type, event, rawText, isValid)
+        self.cardHolder.inputChanged = { type, event, rawText, isValid, card in
+            self.internalInputChanged(type, event, rawText, isValid, card)
         }
         
-        self.cardValidThru.inputChanged = { type, event, rawText, isValid in
-            self.internalInputChanged(type, event, rawText, isValid)
+        self.cardValidThru.inputChanged = { type, event, rawText, isValid, card in
+            self.internalInputChanged(type, event, rawText, isValid,card)
         }
     }
     

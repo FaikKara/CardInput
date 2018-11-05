@@ -9,7 +9,7 @@
 import UIKit
 
 /// The UIView that gets Credit Card Holder Name. 
-internal class CardInputHolderView: UIView, Validation {
+internal class CardInputHolderView: UIView, Validation, UITextFieldDelegate {
 
     @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var lblTitle: UILabel!
@@ -26,11 +26,10 @@ internal class CardInputHolderView: UIView, Validation {
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.lblTitle.text = "CARD HOLDER"
         self.fieldHolder.autocorrectionType = .no
-        
         let appearance = Appearance.default
         self.fieldHolder.tintColor = appearance.tintColor
         self.fieldHolder.textColor = appearance.textColor
-        
+        self.fieldHolder.delegate = self
         self.fieldHolder.addTarget(self, action: #selector(editingChanged), for: UIControl.Event.editingChanged)
     }
     
@@ -71,8 +70,25 @@ internal class CardInputHolderView: UIView, Validation {
         }else {
             self.fieldHolder.textColor = Appearance.default.textColor
         }
-        self.internalChanged(InputType.cardHolder, InputEvent.editingChanged, textValue, isValid)
+        self.internalChanged(InputType.cardHolder, InputEvent.editingChanged, textValue, isValid, nil)
     }
+    
+    // MARK: - UITextFieldDelegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        let textValue = self.fieldHolder.text ?? ""
+        let isValid = textValue.count>0
+        
+        if textValue.count == 0 {
+            self.fieldHolder.textColor = Appearance.default.textColor.withAlphaComponent(0.3)
+        }else {
+            self.fieldHolder.textColor = Appearance.default.textColor
+        }
+        self.internalChanged(InputType.cardHolder, InputEvent.endEditing, textValue, isValid, nil)
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }
 
 

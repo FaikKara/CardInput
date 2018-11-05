@@ -26,29 +26,31 @@ class NextButton: UIButton {
 class ViewController: UIViewController {
     @IBOutlet weak var btnNext: NextButton!
     @IBOutlet weak var cardInputView: CardInputView!
+    private var creditCard: CreditCard?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cardInputView.observeInputChanges { (type, event, text, isValid) in
-            
+        cardInputView.observeInputChanges { [weak self] (type, event, text, isValid, card) in
+            guard let strongSelf = self else { return }
+            strongSelf.creditCard = card
         }
         
-        cardInputView.observeInputCompletion { (card) in
-            
-        }
     }
-
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-//        if "embedCardInput" == segue.identifier {
-//            let dest = segue.destination as! CardInputController
-//            dest.appearance = Appearance.init(tintColor: UIColor.purple, textColor: UIColor.green)
-//        }
-   
+    private func validate(card: CreditCard?) -> Bool {
+        guard let card = card else { return false }
+        return card.cvv.count > 0 && card.holder.count > 0 && card.number.count > 0 && card.validThru.count > 0
     }
     
     
+    @IBAction func nextButtonTapped(_ sender: NextButton) {
+        if !self.validate(card: self.creditCard){
+            print("card is not valid")
+        }else{
+            print("card is valid")
+        }
+    }
     
     
 

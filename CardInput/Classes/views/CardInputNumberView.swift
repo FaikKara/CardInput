@@ -73,12 +73,12 @@ extension CardInputNumberView: AKMaskFieldDelegate {
 
     func maskFieldDidBeginEditing(_ maskField: AKMaskField) {
         let isValid = self.rawValue(in: maskField).count > 0
-        self.internalInputChanged(InputType.cardNumber, InputEvent.beginEditing, self.rawValue(in: maskField), isValid)
+        self.internalInputChanged(InputType.cardNumber, InputEvent.beginEditing, self.rawValue(in: maskField), isValid, nil)
     }
     
     func maskFieldDidEndEditing(_ maskField: AKMaskField) {
         let isValid = self.rawValue(in: maskField).count > 0
-        self.internalInputChanged(InputType.cardNumber, InputEvent.endEditing, self.rawValue(in: maskField), isValid)
+        self.internalInputChanged(InputType.cardNumber, InputEvent.endEditing, self.rawValue(in: maskField), isValid, nil)
     }
     
     func maskField(_ maskField: AKMaskField, didChangedWithEvent event: AKMaskFieldEvent) {
@@ -94,7 +94,7 @@ extension CardInputNumberView: AKMaskFieldDelegate {
             break
         }
         let isValid = self.rawValue(in: maskField).count > 0
-        self.internalInputChanged(InputType.cardNumber, InputEvent.editingChanged, self.rawValue(in: maskField), isValid)
+        self.internalInputChanged(InputType.cardNumber, InputEvent.editingChanged, self.rawValue(in: maskField), isValid, nil)
     }
 }
 

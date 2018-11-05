@@ -57,11 +57,7 @@ public struct CreditCard {
 }
 
 
-public typealias InputChanged = (( _ type:InputType, _ event:InputEvent , _ input:String, _ isValid:Bool) -> ())
-public typealias InputCompletion = (( _ creditCard:CreditCard) -> ())
-
-
-
+public typealias InputChanged = (( _ type: InputType, _ event: InputEvent , _ input: String, _ isValid: Bool, _ creditCard: CreditCard?) -> ())
 
 protocol Validation {
     var inputChanged:InputChanged { get set }
@@ -97,7 +93,7 @@ final public class CardInputView: UIView {
     @IBOutlet weak var btnNext: ProcessButton!
     @IBOutlet weak var btnPrevious: ProcessButton!
     @IBOutlet weak var fieldCard: AKMaskField!
-    @IBOutlet weak var fieldCvv: AKMaskField!
+    @IBOutlet weak var fieldCvv: UITextField!
     @IBOutlet weak var fieldHolder: UITextField!
     @IBOutlet weak var fieldValidThru: UITextField!
     @IBOutlet weak var scrollView: CardInputScrollView!
@@ -117,12 +113,6 @@ final public class CardInputView: UIView {
         }
     }
     private var stateValidation:[InputType:Bool] = [InputType:Bool]()
-    
-    
-    var didComplete: ((_ cardNumber:String, _ cardHolder:String, _ validThru:String) -> Void)?
-    
-    private var completion:InputCompletion?
-    
     
     
     private func commonInit(){
@@ -214,7 +204,6 @@ final public class CardInputView: UIView {
             if let valid1 = self.stateValidation[.validThru], let valid2 = self.stateValidation[.cvv] {
                 if valid1 && valid2 {
                     self.endEditing(true)
-                    self.completion?(self.creditCard)
                 }
             }
             break
@@ -242,14 +231,14 @@ final public class CardInputView: UIView {
     }
     
     @IBAction private func cardHolderTapped(_ sender: UIButton) {
-        if self.creditCard.number.count == 0 { return }
+//        if self.creditCard.number.count == 0 { return }
         
         self.scrollView.scrollToIndex(index: InputType.cardHolder.rawValue, animated: true)
         self.state = .cardHolder
     }
     
     @IBAction private func validThruTapped(_ sender: UIButton) {
-        if self.creditCard.holder.count == 0 { return }
+//        if self.creditCard.holder.count == 0 { return }
         
         self.scrollView.scrollToIndex(index: InputType.validThru.rawValue, animated: true)
         self.state = .validThru
@@ -263,7 +252,7 @@ final public class CardInputView: UIView {
 // MARK: - Observing
 extension CardInputView {
     public func observeInputChanges(using closure: @escaping InputChanged) {
-        self.scrollView.inputChanged = {[weak self] type, event, input, isValid in
+        self.scrollView.inputChanged = {[weak self] type, event, input, isValid, card in
             
             
             var needsStateUpdate = true
@@ -283,6 +272,9 @@ extension CardInputView {
                 strongSelf.creditCard.update(holder: input)
                 strongSelf.fieldHolder.text = input
                 strongSelf.fieldHolder.textColor = self?.textColor(for: input)
+                if event == .endEditing {
+                    strongSelf.nextButtonTapped(input)
+                }
                 break
             case .validThru:
                 strongSelf.creditCard.validThru = input
@@ -310,12 +302,8 @@ extension CardInputView {
             if needsStateUpdate {
                 strongSelf.updateState()
             }
-            closure(type, event, input, isValid)
+            closure(type, event, input, isValid, strongSelf.creditCard)
         }
-    }
-    
-    public func observeInputCompletion(with closure: @escaping InputCompletion) {
-        self.completion = closure
     }
     
     private func textColor(for input:String) -> UIColor {
