@@ -20,6 +20,7 @@
                 <outlet property="backImageView" destination="FXt-xn-X2C" id="F4z-yW-zEu"/>
                 <outlet property="backView" destination="e85-VZ-Uvg" id="Erq-Lo-9mv"/>
                 <outlet property="brandImageView" destination="y7c-ho-w23" id="B3x-FI-DvW"/>
+                <outlet property="brandImageViewBack" destination="7Wi-qp-KRP" id="Xa7-H5-f4J"/>
                 <outlet property="btnNext" destination="LjR-ZA-5Mz" id="HCm-1w-2SD"/>
                 <outlet property="btnPrevious" destination="UUO-5h-Vrd" id="KTy-jf-J8g"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="GlY-Jp-5ux"/>
@@ -60,6 +61,13 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Wi-qp-KRP">
+                                            <rect key="frame" x="193" y="143" width="120" height="33"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="33" id="KJI-VP-X9l"/>
+                                                <constraint firstAttribute="width" constant="120" id="txj-Vd-CP9"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -68,6 +76,8 @@
                                         <constraint firstAttribute="trailing" secondItem="FXt-xn-X2C" secondAttribute="trailing" id="830-55-8di"/>
                                         <constraint firstItem="FXt-xn-X2C" firstAttribute="top" secondItem="e85-VZ-Uvg" secondAttribute="top" id="MVH-WH-UPm"/>
                                         <constraint firstAttribute="bottom" secondItem="FXt-xn-X2C" secondAttribute="bottom" id="TzY-XU-535"/>
+                                        <constraint firstAttribute="trailing" secondItem="7Wi-qp-KRP" secondAttribute="trailing" constant="16" id="VUm-af-rgg"/>
+                                        <constraint firstAttribute="bottom" secondItem="7Wi-qp-KRP" secondAttribute="bottom" constant="19" id="eMr-fN-mFh"/>
                                         <constraint firstItem="CSn-bw-SFN" firstAttribute="centerY" secondItem="e85-VZ-Uvg" secondAttribute="centerY" constant="7" id="zAT-BF-t59"/>
                                     </constraints>
                                 </view>

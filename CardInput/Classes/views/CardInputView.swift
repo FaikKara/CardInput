@@ -86,6 +86,7 @@ class ProcessButton: UIButton {
 
 final public class CardInputView: UIView {
     
+    @IBOutlet weak var brandImageViewBack: UIImageView!
     @IBOutlet weak var brandImageView: UIImageView!
     @IBOutlet weak var frontImageView: UIImageView!
     
@@ -316,7 +317,9 @@ extension CardInputView {
     
     private func applyCardBrand(to input:String){
         let state = CardState.init(fromPrefix: input)
-        self.brandImageView.image = self.cardImage(forState: state)
+        let image = self.cardImage(forState: state)
+        self.brandImageView.image = image
+        self.brandImageViewBack.image = image
     }
     
     private func cardImage(forState cardState:CardState) -> UIImage? {
