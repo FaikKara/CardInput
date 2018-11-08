@@ -86,10 +86,11 @@ class ProcessButton: UIButton {
 
 final public class CardInputView: UIView {
     
+    @IBOutlet weak var frontView: UIView!
+    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var brandImageViewBack: UIImageView!
     @IBOutlet weak var brandImageView: UIImageView!
     @IBOutlet weak var frontImageView: UIImageView!
-    
     @IBOutlet weak var backImageView: UIImageView!
     @IBOutlet weak var btnNext: ProcessButton!
     @IBOutlet weak var btnPrevious: ProcessButton!
@@ -101,11 +102,7 @@ final public class CardInputView: UIView {
     @IBOutlet weak var creditCardView: UIView!
     @IBOutlet var contentView: UIView!
     
-    @IBOutlet weak var frontView: UIView!
-    @IBOutlet weak var backView: UIView!
-
     fileprivate var showingBack:Bool = false
-    
     private var creditCard:CreditCard
     
     private var state:InputType = .cardNumber { // The state of input.
@@ -232,15 +229,11 @@ final public class CardInputView: UIView {
     }
     
     @IBAction private func cardHolderTapped(_ sender: UIButton) {
-//        if self.creditCard.number.count == 0 { return }
-        
         self.scrollView.scrollToIndex(index: InputType.cardHolder.rawValue, animated: true)
         self.state = .cardHolder
     }
     
     @IBAction private func validThruTapped(_ sender: UIButton) {
-//        if self.creditCard.holder.count == 0 { return }
-        
         self.scrollView.scrollToIndex(index: InputType.validThru.rawValue, animated: true)
         self.state = .validThru
     }

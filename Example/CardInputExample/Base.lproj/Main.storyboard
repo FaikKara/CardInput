@@ -11,6 +11,35 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
+        <scene sceneID="dth-DN-GKt">
+            <objects>
+                <viewController id="knC-I1-JmG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Deu-bX-gae">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sut-GX-zjh">
+                                <rect key="frame" x="164.5" y="318.5" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="WTG-ML-12V"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Sut-GX-zjh" firstAttribute="centerY" secondItem="Deu-bX-gae" secondAttribute="centerY" id="Azu-Ja-XZb"/>
+                            <constraint firstItem="Sut-GX-zjh" firstAttribute="centerX" secondItem="Deu-bX-gae" secondAttribute="centerX" id="xC6-Wr-gsG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LWr-7V-nGV"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ugr-UZ-Mk3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BTS-tR-vMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="903" y="133"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CardInputExample" customModuleProvider="target" sceneMemberID="viewController">
@@ -59,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1652" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xyl-mO-d7h">
@@ -72,7 +101,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wCz-er-I0j"/>
+                        <segue destination="knC-I1-JmG" kind="relationship" relationship="rootViewController" id="JFF-TI-g06"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pdy-sL-YmK" userLabel="First Responder" sceneMemberID="firstResponder"/>
