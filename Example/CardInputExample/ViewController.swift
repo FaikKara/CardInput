@@ -35,7 +35,7 @@ class ViewController: UIViewController {
             guard let strongSelf = self else { return }
             strongSelf.creditCard = card
         }
-        
+        cardInputView.changeLabelsTextWithLocalizableText(holderName: "hold", validdThru: "th", cvv: "cv", cardNumber: "cn")
     }
     
     private func validate(card: CreditCard?) -> Bool {

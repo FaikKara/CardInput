@@ -31,9 +31,9 @@ internal class CardInputScrollView: UIScrollView, Validation {
     }
     
     
-    private var cardNumber:CardInputNumberView!
-    private var cardHolder:CardInputHolderView!
-    private var cardValidThru:CardInputValidThruView!
+    public var cardNumber:CardInputNumberView!
+    public var cardHolder:CardInputHolderView!
+    public var cardValidThru:CardInputValidThruView!
     private var currentIndex:Int = 0
     
     

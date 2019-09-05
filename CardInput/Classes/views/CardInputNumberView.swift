@@ -52,6 +52,10 @@ internal class CardInputNumberView: UIView, Validation {
         self.commonInit()
     }
     
+    public func localizedText(cardNumber: String? = "CARD NUMBER") {
+        self.lblTitle.text = cardNumber
+    }
+    
     @discardableResult
     override func becomeFirstResponder() -> Bool {
         super.becomeFirstResponder()

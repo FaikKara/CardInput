@@ -101,7 +101,8 @@ final public class CardInputView: UIView {
     @IBOutlet weak var scrollView: CardInputScrollView!
     @IBOutlet weak var creditCardView: UIView!
     @IBOutlet var contentView: UIView!
-    
+    @IBOutlet weak var lblHolderName: CardLabel!
+    @IBOutlet weak var lblValidThru: CardLabel!    
     fileprivate var showingBack:Bool = false
     private var creditCard:CreditCard
     
@@ -152,6 +153,14 @@ final public class CardInputView: UIView {
     override public func layoutSubviews() {
         super.layoutSubviews()
         self.scrollView.layoutSubviews()
+    }
+    
+    public func changeLabelsTextWithLocalizableText(holderName: String? = "HOLDER NAME", validdThru: String? = "VALID THRU", cvv: String? = "CVV",  cardNumber: String? = "CARD NUMBER") {
+        self.lblHolderName.text = holderName
+        self.lblValidThru.text = validdThru
+        self.scrollView.cardHolder.localizedText(holderName: holderName)
+        self.scrollView.cardValidThru.localizedText(validThru: validdThru, cvv: cvv)
+        self.scrollView.cardNumber.localizedText(cardNumber: cardNumber)
     }
     
     @discardableResult

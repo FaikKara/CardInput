@@ -15,6 +15,8 @@ internal class CardInputValidThruView: UIView, Validation {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var fieldValidThru: AKMaskField!
     @IBOutlet weak var fieldCvv: UITextField!
+    @IBOutlet weak var lblValidThru: UILabel!
+    @IBOutlet weak var lblCvv: UILabel!
     
     private func commonInit(){
         
@@ -56,6 +58,11 @@ internal class CardInputValidThruView: UIView, Validation {
     init() {
         super.init(frame: CGRect.zero)
         commonInit()
+    }
+    
+    public func localizedText(validThru: String? = "VALID THRU", cvv: String? = "CVV") {
+        self.lblValidThru.text = validThru
+        self.lblCvv.text = cvv
     }
 
     

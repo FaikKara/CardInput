@@ -24,7 +24,7 @@ internal class CardInputHolderView: UIView, Validation, UITextFieldDelegate {
         
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        self.lblTitle.text = "CARD HOLDER"
+        self.lblTitle.text =  "CARD HOLDER"
         self.fieldHolder.autocorrectionType = .no
         let appearance = Appearance.default
         self.fieldHolder.tintColor = appearance.tintColor
@@ -42,6 +42,10 @@ internal class CardInputHolderView: UIView, Validation, UITextFieldDelegate {
     init() {
         super.init(frame: CGRect.zero)
         self.commonInit()
+    }
+    
+    public func localizedText(holderName: String? = "HOLDER NAME") {
+        self.lblTitle.text = holderName
     }
  
     /// MARK - Validation

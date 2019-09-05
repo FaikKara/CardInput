@@ -1,20 +1,24 @@
 PODS:
   - AKMaskField (2.0.3)
-  - CardInput (0.4.8):
+  - CardInput (0.5.7):
     - AKMaskField
 
 DEPENDENCIES:
   - AKMaskField
   - CardInput (from `../`)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AKMaskField
+
 EXTERNAL SOURCES:
   CardInput:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   AKMaskField: b6d147524813e62cd3f15475fa2200ce7a3d2620
-  CardInput: f5aeaf783b0a32bbac0bf19d978e57571120b80e
+  CardInput: 8cdc884cf8ed860f44ca41ed2409356237aa745b
 
 PODFILE CHECKSUM: 077e169a90f84be8868e8719cfacf0d880cc9d07
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.7.5
