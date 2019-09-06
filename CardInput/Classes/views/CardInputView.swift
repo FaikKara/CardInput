@@ -155,11 +155,11 @@ final public class CardInputView: UIView {
         self.scrollView.layoutSubviews()
     }
     
-    public func changeLabelsTextWithLocalizableText(holderName: String? = "HOLDER NAME", validdThru: String? = "VALID THRU", cvv: String? = "CVV",  cardNumber: String? = "CARD NUMBER") {
+    public func changeLabelsTextWithLocalizableText(holderName: String? = "HOLDER NAME", validThru: String? = "VALID THRU", cvv: String? = "CVV",  cardNumber: String? = "CARD NUMBER") {
         self.lblHolderName.text = holderName
-        self.lblValidThru.text = validdThru
+        self.lblValidThru.text = validThru
         self.scrollView.cardHolder.localizedText(holderName: holderName)
-        self.scrollView.cardValidThru.localizedText(validThru: validdThru, cvv: cvv)
+        self.scrollView.cardValidThru.localizedText(validThru: validThru, cvv: cvv)
         self.scrollView.cardNumber.localizedText(cardNumber: cardNumber)
     }
     
